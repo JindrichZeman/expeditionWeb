@@ -1,0 +1,16 @@
+{
+    "name": "expedition-system/app",
+    "description": "MVC aplikace pro systém expedic",
+    "type": "project",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

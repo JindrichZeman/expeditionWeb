@@ -31,11 +31,11 @@ class BaseModel
     /**
      * Vrátí jeden záznam podle ID
      */
-    public function findById(int $id): ?array
+    public function findById(int $user_id): ?array
     {
         $sql = "SELECT * FROM `{$this->table}` WHERE id = :id";
         $stmt = $this->db->prepare($sql);
-        $stmt->execute(['id' => $id]);
+        $stmt->execute(['id' => $user_id]);
         $result = $stmt->fetch();
         return $result ?: null;
     }

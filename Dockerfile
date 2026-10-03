@@ -1,4 +1,8 @@
+FROM composer:2 AS composer
+
 FROM php:8.2-fpm
+
+COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 # Instalace nezbytných rozšíření
 RUN apt-get update && apt-get install -y \

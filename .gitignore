@@ -1,7 +1,6 @@
 .env
 .env.local
 vendor/
-composer.lock
 var/logs/*
 !var/logs/.gitkeep
 var/uploads/*

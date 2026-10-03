@@ -15,14 +15,17 @@ class BaseController
     protected function render(string $view, array $data = []): void
     {
         $this->data = array_merge($this->data, $data);
-        $viewPath = __DIR__ . '/../../app/Views/' . $view . '.php';
+        $viewPath = __DIR__ . '/../Views/' . $view . '.php';
 
         if (!file_exists($viewPath)) {
             die("View $view nenalezen");
         }
 
         extract($this->data);
+        ob_start();
         require $viewPath;
+        $content = ob_get_clean();
+        require __DIR__ . '/../Views/layouts/main.php';
     }
 
     /**

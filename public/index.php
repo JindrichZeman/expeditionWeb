@@ -1,5 +1,13 @@
 <?php
-echo "<h1>Expedice do vesmíru - Testovací stránka</h1>";
-echo "<p>Vole</p>";
-echo "<p>Docker je spuštěný!</p>";
-?>
+
+require_once __DIR__ . "/../vendor/autoload.php";
+use App\Core\Router;
+use App\Core\Session;
+
+Session::start();
+
+$router = new Router();
+
+$router->get("/users", "UserController", "index");
+$router->get("/", "UserController", "index");
+$router->dispatch();
