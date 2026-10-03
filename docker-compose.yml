@@ -1,11 +1,10 @@
-version: '3.8'
+name: expedition-system-v3
 
 services:
   php:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: expedition-php
     working_dir: /app
     volumes:
       - ./:/app
@@ -17,7 +16,6 @@ services:
 
   nginx:
     image: nginx:latest
-    container_name: expedition-nginx
     ports:
       - "8080:80"
     volumes:
@@ -30,36 +28,40 @@ services:
 
   mariadb:
     image: mariadb:11.4
-    container_name: expedition-db
+    privileged: true
+    stop_signal: SIGKILL
     environment:
       MARIADB_ROOT_PASSWORD: rootpassword
       MARIADB_DATABASE: expedition_db
       MARIADB_USER: expedition_user
       MARIADB_PASSWORD: expedition_password
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
-      - mariadb_data:/var/lib/mysql
+      - mariadb_data_v3:/var/lib/mysql
       - ./sql:/docker-entrypoint-initdb.d:ro
     networks:
       - expedition-net
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
       timeout: 5s
       retries: 10
+      interval: 5s
+      start_period: 30s
 
   phpmyadmin:
     image: phpmyadmin:latest
-    container_name: expedition-phpmyadmin
     environment:
       PMA_HOST: mariadb
+      PMA_PORT: 3306
       PMA_USER: expedition_user
       PMA_PASSWORD: expedition_password
       PMA_DB: expedition_db
     ports:
       - "8081:80"
     depends_on:
-      - mariadb
+      mariadb:
+        condition: service_healthy
     networks:
       - expedition-net
 
@@ -68,4 +70,4 @@ networks:
     driver: bridge
 
 volumes:
-  mariadb_data:
+  mariadb_data_v3:
