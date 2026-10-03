@@ -1,0 +1,24 @@
+{
+  "name": "expedition-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "tailwindcss -i ./assets/css/input.css -o ./public/assets/css/style.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JindrichZeman/expeditionWeb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JindrichZeman/expeditionWeb/issues"
+  },
+  "homepage": "https://github.com/JindrichZeman/expeditionWeb#readme",
+  "devDependencies": {
+    "tailwindcss": "^4.3.3"
+  }
+}

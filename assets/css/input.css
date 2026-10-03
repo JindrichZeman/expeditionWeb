@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@source "../../app/Views";
+@source "../../public";
+
+@theme {
+    --color-paper: #F4F1EA;
+    --color-paper-dark: #E8E5DC;
+    --color-paper-border: #CCCCCC;
+}
+
+@layer components {
+    .paper-container {
+        @apply bg-paper border border-paper-border shadow-xl rounded-sm p-6 sm:p-10 max-w-5xl mx-auto;
+    }
+}
