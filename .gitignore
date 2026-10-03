@@ -1,0 +1,15 @@
+.env
+.env.local
+vendor/
+composer.lock
+var/logs/*
+!var/logs/.gitkeep
+var/uploads/*
+!var/uploads/.gitkeep
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
