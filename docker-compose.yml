@@ -1,4 +1,4 @@
-name: expedition-system-v3
+name: expedition
 
 services:
   php:
@@ -28,8 +28,7 @@ services:
 
   mariadb:
     image: mariadb:11.4
-    privileged: true
-    stop_signal: SIGKILL
+    stop_grace_period: 30s
     environment:
       MARIADB_ROOT_PASSWORD: rootpassword
       MARIADB_DATABASE: expedition_db
