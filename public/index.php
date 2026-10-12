@@ -9,4 +9,5 @@ Session::start();
 $router = new Router();
 
 $router->get("/", "UserController", "index");
+$router->get("/register", "AuthController", "showRegister");
 $router->dispatch();
