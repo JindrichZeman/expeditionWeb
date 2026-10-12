@@ -12,3 +12,4 @@ var/uploads/*
 *~
 .DS_Store
 Thumbs.db
+INSTRUCTIONS.md

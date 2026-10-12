@@ -8,6 +8,5 @@ Session::start();
 
 $router = new Router();
 
-$router->get("/users", "UserController", "index");
 $router->get("/", "UserController", "index");
 $router->dispatch();

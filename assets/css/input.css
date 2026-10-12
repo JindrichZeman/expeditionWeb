@@ -1,12 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
 @import "tailwindcss";
-
 @source "../../app/Views";
 @source "../../public";
 
 @theme {
+    /* Font */
+    --font-serif: "PT Serif", serif;
+    --font-mono: "Courier Prime", monospace;
+    --font-sans: "Inter", sans-serif;
+
+    --color-paper-back: #fbfaf5;
     --color-paper: #F4F1EA;
     --color-paper-dark: #E8E5DC;
     --color-paper-border: #CCCCCC;
+    --color-secret-color: #a1454c;
+    --color-title-color: #2609B9;
+    --color-text-color: black;
 }
 
 @layer components {
