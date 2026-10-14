@@ -31,7 +31,6 @@
     --font-weight-bold: 700;
     --font-weight-black: 900;
     --tracking-wide: 0.025em;
-    --tracking-wider: 0.05em;
     --tracking-widest: 0.1em;
     --radius-sm: 0.25rem;
     --default-font-family: var(--font-sans);
@@ -203,17 +202,26 @@
   .flex {
     display: flex;
   }
+  .hidden {
+    display: none;
+  }
   .w-full {
     width: 100%;
   }
   .border-collapse {
     border-collapse: collapse;
   }
+  .flex-col {
+    flex-direction: column;
+  }
   .items-center {
     align-items: center;
   }
   .justify-between {
     justify-content: space-between;
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
   }
   .overflow-x-auto {
     overflow-x: auto;
@@ -295,10 +303,6 @@
   .text-3xl {
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
-  }
-  .text-4xl {
-    font-size: var(--text-4xl);
-    line-height: var(--tw-leading, var(--text-4xl--line-height));
   }
   .text-sm {
     font-size: var(--text-sm);

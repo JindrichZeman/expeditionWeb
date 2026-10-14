@@ -7,6 +7,7 @@ use App\Core\Session;
 Session::start();
 
 $router = new Router();
+$router->post("/register", "AuthController", "handleRegister");
 
 $router->get("/", "UserController", "index");
 $router->get("/register", "AuthController", "showRegister");
